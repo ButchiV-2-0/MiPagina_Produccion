@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Guia O.W.A.S.P | Top 10 Riesgos en seguridad web</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="Caja">
+<p class="titulo">O.W.A.S.P | Top 10 Riesgos en seguridad web</p>
+</div>
+<p>
+    El <strong>OWASP Top 10</strong> es un documento de concienciación estándar para desarrolladores y aplicaciones web. Representa un consenso amplio sobre las vulnerabilidades de seguridad más críticas en aplicaciones web.</p>
+     <p>Esta guía adapta el contenido técnico del OWASP Top 10 a un formato web accesible, con explicaciones claras, ejemplos prácticos y recomendaciones de mitigación para cada riesgo.
+</p>
+
+<p class="titulo">Perdida de Control de Acceso (Broken Access Control)</p>
+
+<p class="subtitulo">Qué es:</p> 
+<p>Fallos que permiten a los usuarios actuar fuera de sus permisos (ej. ver o modificar datos de otros, acceder a funcionalidades administrativas como un usuario normal).</p><br>
+
+<p class="subtitulo">Principio de Mitigación: </p> 
+<p>Implementar un mecanismo de control de acceso robusto, basado en permisos explícitos. "Negar por defecto" y aplicar controles en cada solicitud del servidor.</p>
+
+<img class="circular" src="img/1.png" alt="Perdida de control de acceso">
+
+<p class="titulo">Fallas Criptográficas (Cryptographic Failures)</p>
+
+<p class="subtitulo">Qué es:</p> 
+<p>Protección inadecuada de datos sensibles (contraseñas, números de tarjetas, datos personales). Incluye uso de algoritmos débiles o obsoletos, transmisión sin cifrado (HTTP), y manejo incorrecto de claves.</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p> 
+<p>Cifrar todos los datos sensibles en tránsito y en reposo. Usar algoritmos fuertes y actualizados (ej. AES, TLS 1.2/1.3). Nunca almacenar contraseñas en texto plano; usar funciones de hashing seguras y lentas con salting (ej. Argon2, bcrypt).</p>
+
+<img class="circular" src="img/2.png" alt="Fallas Criptográficas">
+
+<p class="titulo">Inyección (Injection)</p>
+
+<p class="subtitulo">Qué es:</p>
+<p>Incluye SQL, NoSQL, LDAP y inyección de comandos del sistema. Ocurre cuando datos no confiables se envían a un intérprete como parte de un comando o consulta.</p><br>
+
+<p class="subtitulo">Principio de Mitigación (La defensa absoluta):</p>
+<p>usar consultas parametrizadas o instrucciones preparadas (Prepared Statements) para bases de datos. Escapar caracteres especiales y/o usar frameworks ORM de confianza. Validar y sanitizar toda la entrada del usuario.</p><br>
+
+<img class="circular" src="img/3.png" alt="inyección">
+
+<p class="titulo">Diseño Inseguro (Insecure Design)</p>
+
+<p class="subtitulo">Qué es:</p> 
+<p>Nuevo en 2021, se enfoca en fallas derivadas de decisiones de diseño arquitectónico o lógico, antes de escribir una sola línea de código (ej. lógica de negocio defectuosa, falta de flujos de autorización).</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p>
+<p> Integrar la seguridad desde la fase de diseño (Shift Left Security). Usar modelos de amenazas, patrones de diseño seguros y revisar la arquitectura.</p>
+
+<img class="circular" src="img/4.png" alt="diseño Inseguro">
+
+<p class="titulo">Configuración de Seguridad Incorrecta (Security Misconfiguration)</p>
+
+<p class="subtitulo">Qué es:</p>
+<p>Configuración predeterminada insegura en servidores, frameworks, bases de datos o aplicaciones (ej. mensajes de error detallados, puertos administrativos abiertos, software desactualizado).</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p> 
+<p>Implementar entornos de despliegue estandarizados y "endurecidos". Automatizar los procesos de configuración. Realizar revisiones y auditorías periódicas.</p>
+
+<img class="circular" src="img/5.png" alt="Configuración Incorrecta">
+
+<p class="titulo">Componentes Vulnerables y Desactualizados</p>
+
+<p class="subtitulo">Qué es:</p>
+<p>Uso de librerías, frameworks o componentes de software de terceros con vulnerabilidades conocidas (ej. Log4Shell).</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p> 
+<p>Inventariar y gestionar continuamente los componentes usados (SBOM - Software Bill of Materials). Suscribirse a alertas de seguridad, utilizar solo componentes oficiales y mantenerlos actualizados.</p>
+
+<img class="circular" src="img/6.png" alt="Componentes Vulnerables y Desactualizados">
+
+<p class="titulo">Fallos de Identificación y Autenticación (Identification and Authentication Failures)</p>
+
+<p class="subtitulo">Qué es:</p>
+<p>Fallos en los procesos de login, gestión de sesiones y recuperación de contraseñas (ej. credenciales por defecto, autenticación débil, sesiones que no expiran, exposición de IDs de sesión en la URL).</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p> 
+<p>Implementar autenticación multi-factor (MFA). No usar credenciales por defecto. Crear contraseñas fuertes y gestionar las sesiones de forma segura (con tokens robustos y renovables).</p>
+
+<img class="circular" src="img/7.png" alt="Fallos de Autenticación">
+
+<p class="titulo">Fallos en la Integridad del Software y los Datos</p>
+
+<p class="subtitulo">Qué es:</p>
+<p>Vulnerabilidades relacionadas con la actualización inadecuada de código y datos, sin verificar su integridad (ej. actualizaciones automáticas comprometidas, datos alterados por atacantes).</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p> 
+<p>Usar firmas digitales o hashes de verificación para asegurar que el código no ha sido alterado. Utilizar canales seguros y confiables para las actualizaciones.</p>
+
+<img class="circular" src="img/8.png" alt="Fallos de integridad de software y datos">
+
+<p class="titulo">Fallos de Registro y Monitoreo (Security Logging and Monitoring Failures)</p>
+
+<p class="subtitulo">Qué es:</p>
+<p>Ausencia o ineficacia en el registro de actividades de seguridad, que impide detectar y responder a incidentes (ej. no registrar intentos de login fallidos).</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p> 
+<p>Implementar logging integral que capture eventos de autenticación, control de acceso y validación de entrada. Establecer alertas y mecanismos de respuesta a incidentes. Centralizar y proteger los logs.</p>
+
+<img class="circular" src="img/9.png" alt="Fallos de registor y monitoreo">
+
+
+<p class="titulo">Falsificación de Solicitudes del Lado del Servidor (SSRF)</p>
+
+<p class="subtitulo">Qué es:</p>
+<p>Permite a un atacante inducir a la aplicación a realizar solicitudes HTTP a dominios o sistemas internos no deseados, pudiendo acceder a recursos internos sensibles.</p><br>
+
+<p class="subtitulo">Principio de Mitigación:</p> 
+<p>Validar y sanitizar estrictamente la entrada del usuario. Implementar listas de permitidos (allow lists) para esquemas, puertos y destinos. No enviar respuestas HTTP crudas al cliente.</p>
+
+<img class="circular" src="img/10.png" alt="SSRF">
+
+<div class="caja2">
+<p class="titulo">Conclusión</p>
+</div>
+
+<p>El OWASP Top 10 no es una lista de verificación para tachar una vez, sino una brújula estratégica para integrar la seguridad en todo el ciclo de vida del desarrollo de software (SDLC). La seguridad efectiva requiere un enfoque proactivo y en capas (defensa en profundidad), que combine:
+
+Cultura: Concientización y capacitación constante.
+
+Procesos: Desarrollo Seguro (DevSecOps), revisión de código, pruebas de penetración.
+
+Tecnología: Herramientas de análisis estático y dinámico (SAST/DAST), firewalls para aplicaciones web (WAF).
+
+Proteger una aplicación web es proteger a sus usuarios, su negocio y su futuro digital. Empiece hoy mismo integrando el OWASP Top 10 en sus prácticas de desarrollo.</p>
+
+</body>
+
+</html>
